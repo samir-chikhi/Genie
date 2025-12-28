@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <meta name="google-site-verification" content="HfJ39hq0QAKVQze0CYU-hRFpN-mmsu5t3JD5-yU4bIc" />
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -208,33 +207,34 @@
                     <ul class="pricing-features list-disc ml-5 mb-6">
                         <li>Accès à l'espace coworking</li>
                         <li>WiFi haut débit</li>
-                         <li>Accès cuisine</li>
+                        <li>Café/thé</li>
+                        <li>Accès cuisine</li>
                         <li>Participation aux événements</li>
                     </ul>
                     <a href="#contact" class="btn-secondary w-full inline-block text-center">Réserver</a>
                 </div>
-                
+
                 <!-- Pass Régulier -->
                 <div class="pricing-card featured border-2 border-yellow-400 p-6 rounded">
                     <div class="badge mb-2">Le plus populaire</div>
                     <div class="pricing-header mb-4">
                         <h3 class="text-lg font-semibold">Pass Régulier</h3>
                         <div class="price text-2xl font-bold">
-                            <span class="amount">À partir de 100€</span>
+                            <span class="amount">À partir de 60€</span>
                             <span class="period text-sm ml-2">/mois</span>
                         </div>
                     </div>
                     <ul class="pricing-features list-disc ml-5 mb-6">
                         <li>Tous les avantages Pass Découverte</li>
                         <li>Accès 24h/24, 7j/7</li>
-                        <li>Casier personnel</li>
+                        <li>Casier personnel sécurisé</li>
                         <li>Domiciliation possible (+30€)</li>
                         <li>Priorité sur salles de réunion</li>
                         <li>Réseau & mentorat</li>
                     </ul>
                     <a href="#contact" class="btn-primary w-full inline-block text-center">S'abonner</a>
                 </div>
-                
+
                 <!-- Pass Premium -->
                 <div class="pricing-card border rounded p-6">
                     <div class="pricing-header mb-4">
@@ -272,20 +272,20 @@
                     <h3 class="mt-4">Ateliers & Formations</h3>
                     <p class="text-sm">Des sessions pratiques sur l'entrepreneuriat, le numérique, la gestion de projet</p>
                 </div>
-                
+
                 <div class="event-card p-6 border rounded">
                     <div class="event-icon text-3xl">🤝</div>
                     <h3 class="mt-4">Networking & Pitch</h3>
                     <p class="text-sm">Rencontrez d'autres entrepreneurs, présentez vos projets, créez des partenariats</p>
                 </div>
-                
+
                 <div class="event-card p-6 border rounded">
                     <div class="event-icon text-3xl">🎨</div>
                     <h3 class="mt-4">Événements culturels</h3>
                     <p class="text-sm">Expositions, conférences... Le Génie vibre au rythme de la créativité</p>
                 </div>
             </div>
-            
+
             <div class="text-center mt-12">
                 <p class="text-lg mb-4">Rejoignez notre communauté pour ne rien manquer !</p>
                 <div class="flex gap-4 justify-center">
@@ -374,15 +374,17 @@
                         </div>
                     </div>
                     
-                    <div class="map-placeholder bg-gray-100 p-4 rounded">
-                        <p>🗺️ Carte Google Maps</p>
-                        <div style="width:100%;height:260px;margin-top:8px;">
-                          <iframe
-                            src="https://www.google.com/maps?q=44.0156337,1.3425415&z=17&output=embed"
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                        <p class="text-sm mt-2"><a href="https://www.google.com/maps/place/G%C3%A9nie+Montauban+-+le+Tiers+Lieu/@44.0156337,1.3425415,17z/data=!3m1!4b1!4m6!3m5!1s0x12ac0d84957552d7:0xd644a76c353dafc9!8m2!3d44.0156337!4d1.3425415!16s%2Fg%2F11yt35ssyv" target="_blank" rel="noopener noreferrer">Ouvrir dans Google Maps</a></p>
+                    <!-- Calendly inline widget begin -->
+                    <div id="calendly" class="calendly-inline-widget" data-url="https://calendly.com/genie-montauban/30min" style="min-width:320px;height:700px;"></div>
+                    <!-- Calendly inline widget end -->
+
+                    <!-- Carte Google Maps (gardée en dessous) -->
+                    <div style="width:100%;height:260px;margin-top:12px;">
+                      <iframe
+                        src="https://www.google.com/maps?q=44.0156337,1.3425415&z=17&output=embed"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
+                    <p class="text-sm mt-2"><a href="https://www.google.com/maps/place/G%C3%A9nie+Montauban+-+le+Tiers+Lieu/@44.0156337,1.3425415,17z" target="_blank" rel="noopener noreferrer">Ouvrir dans Google Maps</a></p>
                 </div>
             </div>
         </div>
@@ -466,6 +468,9 @@
 
     <!-- JavaScript -->
     <script src="js/main.js" defer></script>
+
+    <!-- Calendly script (loads widget) -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
     <!-- Small fallback JS (UI helpers only) -->
     <script>
