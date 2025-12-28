@@ -298,97 +298,91 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-gray" aria-labelledby="contact-title">
-        <div class="container mx-auto px-6">
-            <h2 id="contact-title" class="section-title text-center">Contactez-nous</h2>
-            <p class="text-center text-xl mb-12">
-                Une question ? Un projet ? Visitez-nous ou écrivez-nous !
-            </p>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <form id="contactForm" class="contact-form" action="#" method="post" aria-label="Formulaire de contact">
-                        <div class="form-group mb-4">
-                            <label for="nom">Nom complet *</label>
-                            <input type="text" id="nom" name="nom" required class="w-full p-2 border rounded">
-                        </div>
-                        
-                        <div class="form-group mb-4">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required class="w-full p-2 border rounded">
-                        </div>
-                        
-                        <div class="form-group mb-4">
-                            <label for="telephone">Téléphone</label>
-                            <input type="tel" id="telephone" name="telephone" class="w-full p-2 border rounded">
-                        </div>
-                        
-                        <div class="form-group mb-4">
-                            <label for="sujet">Sujet *</label>
-                            <select id="sujet" name="sujet" required class="w-full p-2 border rounded">
-                                <option value="">-- Choisissez --</option>
-                                <option value="visite">Demande de visite</option>
-                                <option value="reservation">Réservation</option>
-                                <option value="information">Demande d'information</option>
-                                <option value="partenariat">Partenariat</option>
-                                <option value="autre">Autre</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group mb-4">
-                            <label for="message">Votre message *</label>
-                            <textarea id="message" name="message" rows="6" required class="w-full p-2 border rounded"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn-primary w-full inline-block text-center">Envoyer</button>
-                    </form>
-                </div>
-                
-                <div>
-                    <div class="contact-info mb-6">
-                        <h3>Informations pratiques</h3>
-                        
-                        <div class="info-item mb-3">
-                            <strong>📍 Adresse</strong>
-                            <p>12, rue du Génie<br>82000 Montauban</p>
-                        </div>
-                        
-                        <div class="info-item mb-3">
-                            <strong>✉️ Email</strong>
-                            <p><a href="mailto:genie.montauban@gmail.com">genie.montauban@gmail.com</a></p>
-                        </div>
-                        
-                        <div class="info-item mb-3">
-                            <strong>📞 Téléphone</strong>
-                            <p>+33 6 52 81 38 22</p>
-                        </div>
-                        
-                        <div class="info-item mb-3">
-                            <strong>🕐 Horaires</strong>
-                            <p>Lundi - Vendredi : 9h - 18h<br>Accès 24/7 pour les membres</p>
-                        </div>
-                        
-                        <div class="info-item mb-3">
-                            <strong>🚗 Accès</strong>
-                            <p>À 1 min de la gare SNCF</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Calendly inline widget begin -->
-                    <div id="calendly" class="calendly-inline-widget" data-url="https://calendly.com/genie-montauban/30min" style="min-width:320px;height:700px;"></div>
-                    <!-- Calendly inline widget end -->
+   <!-- Contact Section -->
+<section id="contact" class="section-gray" aria-labelledby="contact-title">
+    <div class="container mx-auto px-6">
+        <h2 id="contact-title" class="section-title text-center">Contactez-nous</h2>
+        <p class="text-center text-xl mb-12">
+            Une question ? Un projet ? Visitez-nous ou écrivez-nous !
+        </p>
 
-                    <!-- Carte Google Maps (gardée en dessous) -->
-                    <div style="width:100%;height:260px;margin-top:12px;">
-                      <iframe
-                        src="https://www.google.com/maps?q=44.0156337,1.3425415&z=17&output=embed"
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- LEFT COLUMN: form then contact-info -->
+            <div>
+                <form id="contactForm" class="contact-form" action="#" method="post" aria-label="Formulaire de contact">
+                    <div class="form-group mb-4">
+                        <label for="nom" class="block mb-1">Nom complet *</label>
+                        <input id="nom" name="nom" required class="w-full p-2 border rounded" />
                     </div>
-                    <p class="text-sm mt-2"><a href="https://www.google.com/maps/place/G%C3%A9nie+Montauban+-+le+Tiers+Lieu/@44.0156337,1.3425415,17z" target="_blank" rel="noopener noreferrer">Ouvrir dans Google Maps</a></p>
+                    <div class="form-group mb-4">
+                        <label for="email" class="block mb-1">Email *</label>
+                        <input id="email" type="email" name="email" required class="w-full p-2 border rounded" />
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="telephone" class="block mb-1">Téléphone</label>
+                        <input id="telephone" name="telephone" class="w-full p-2 border rounded" />
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="sujet" class="block mb-1">Sujet *</label>
+                        <select id="sujet" name="sujet" required class="w-full p-2 border rounded"><option>-- Choisissez --</option></select>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="message" class="block mb-1">Votre message *</label>
+                        <textarea id="message" name="message" rows="6" required class="w-full p-2 border rounded"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full inline-block text-center">Envoyer</button>
+                </form>
+
+                <!-- CONTACT INFO moved under the form (left column) -->
+                <div class="contact-info mt-6">
+                    <h3>Informations pratiques</h3>
+
+                    <div class="info-item mb-3">
+                        <strong>📍 Adresse</strong>
+                        <p>12, rue du Génie<br>82000 Montauban</p>
+                    </div>
+
+                    <div class="info-item mb-3">
+                        <strong>✉️ Email</strong>
+                        <p><a href="mailto:genie.montauban@gmail.com">genie.montauban@gmail.com</a></p>
+                    </div>
+
+                    <div class="info-item mb-3">
+                        <strong>📞 Téléphone</strong>
+                        <p>+33 6 52 81 38 22</p>
+                    </div>
+
+                    <div class="info-item mb-3">
+                        <strong>🕐 Horaires</strong>
+                        <p>Lundi - Vendredi : 9h - 18h<br>Accès 24/7 pour les membres</p>
+                    </div>
+
+                    <div class="info-item mb-3">
+                        <strong>🚗 Accès</strong>
+                        <p>À 1 min de la gare SNCF</p>
+                    </div>
                 </div>
             </div>
+
+            <!-- RIGHT COLUMN: Calendly widget then Google Map (map kept below) -->
+            <div>
+                <!-- Calendly inline widget begin (height controlled by JS) -->
+                <div id="calendly" class="calendly-inline-widget" data-url="https://calendly.com/genie-montauban/30min" style="width:100%;"></div>
+                <!-- Calendly inline widget end -->
+
+                <!-- Google Maps (kept below Calendly) -->
+                <div class="map-wrapper mt-4" style="width:100%;height:260px;margin-top:12px;">
+                  <iframe
+                    src="https://www.google.com/maps?q=44.0156337,1.3425415&z=17&output=embed"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <p class="text-sm mt-2"><a href="https://www.google.com/maps/place/G%C3%A9nie+Montauban+-+le+Tiers+Lieu/@44.0156337,1.3425415,17z" target="_blank" rel="noopener noreferrer">Ouvrir dans Google Maps</a></p>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+   
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white">
