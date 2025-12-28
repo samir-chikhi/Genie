@@ -12,15 +12,18 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#111827">
 
+    <!-- Google site verification -->
+    <meta name="google-site-verification" content="ce7b97106750be0c" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://samir-chikhi.github.io/Genie/">
     <meta property="og:title" content="Génie Montauban - Le Tiers Lieu | Coworking & ESS">
     <meta property="og:description" content="Tiers-lieu, coworking et espace collaboratif au cœur de Montauban. Rejoignez notre communauté d'entrepreneurs et d'acteurs de l'ESS.">
-    <meta property="og:image" content="/images/og-image.svg">
+    <meta property="og:image" content="images/og-image.svg">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,8 +83,13 @@
     <nav id="navbar" aria-label="Navigation principale" class="bg-white">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="logo" aria-hidden="true">
-                <h1 class="text-xl font-bold">GÉNIE</h1>
-                <p class="text-sm">Le Tiers Lieu</p>
+                <a href="./" class="flex items-center gap-3">
+                  <img src="images/logo.png" alt="Génie Montauban — logo" class="h-12 w-auto" />
+                  <div class="hidden sm:block">
+                    <h1 class="text-xl font-bold">GÉNIE</h1>
+                    <p class="text-sm">Le Tiers Lieu</p>
+                  </div>
+                </a>
             </div>
             
             <button class="mobile-menu-btn" aria-controls="mobileMenu" aria-expanded="false" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu mobile">☰</button>
@@ -281,7 +289,7 @@
             <div class="text-center mt-12">
                 <p class="text-lg mb-4">Rejoignez notre communauté pour ne rien manquer !</p>
                 <div class="flex gap-4 justify-center">
-                    <a href="#" class="social-btn" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+                    <a href="https://www.facebook.com/profile.php?id=61585419075483" class="social-btn" rel="noopener noreferrer" aria-label="Facebook" target="_blank">Facebook</a>
                     <a href="#" class="social-btn" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
                     <a href="#" class="social-btn" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
                 </div>
@@ -368,7 +376,12 @@
                     
                     <div class="map-placeholder bg-gray-100 p-4 rounded">
                         <p>🗺️ Carte Google Maps</p>
-                        <p class="text-sm"><a href="https://www.google.com/maps/search/12+rue+du+G%C3%A9nie+82000+Montauban/" rel="noopener noreferrer" target="_blank">Voir sur Google Maps</a></p>
+                        <div style="width:100%;height:260px;margin-top:8px;">
+                          <iframe
+                            src="https://www.google.com/maps?q=44.0156337,1.3425415&z=17&output=embed"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <p class="text-sm mt-2"><a href="https://www.google.com/maps/place/G%C3%A9nie+Montauban+-+le+Tiers+Lieu/@44.0156337,1.3425415,17z/data=!3m1!4b1!4m6!3m5!1s0x12ac0d84957552d7:0xd644a76c353dafc9!8m2!3d44.0156337!4d1.3425415!16s%2Fg%2F11yt35ssyv" target="_blank" rel="noopener noreferrer">Ouvrir dans Google Maps</a></p>
                     </div>
                 </div>
             </div>
@@ -381,8 +394,13 @@
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <div class="logo mb-4">
-                        <h3 class="text-lg font-bold">GÉNIE</h3>
-                        <p class="text-sm">Le Tiers Lieu</p>
+                      <a href="./" class="inline-flex items-center gap-3">
+                        <img src="images/logo.png" alt="Génie Montauban — logo" class="h-10 w-auto" />
+                        <div class="hidden sm:block">
+                          <h3 class="text-lg font-bold">GÉNIE</h3>
+                          <p class="text-sm">Le Tiers Lieu</p>
+                        </div>
+                      </a>
                     </div>
                     <p class="text-gray-400 text-sm">
                         Le tiers-lieu qui fait grandir vos projets au cœur de Montauban
@@ -431,7 +449,7 @@
     <button class="scroll-to-top fixed bottom-6 right-6 p-3 rounded-full bg-gray-800 text-white" id="scrollToTop" onclick="scrollToTop()" aria-label="Remonter en haut">↑</button>
 
     <!-- Cookie Consent Banner -->
-    <div class="cookie-banner fixed bottom-0 left-0 right-0 bg-white shadow-md p-4" id="cookieBanner" role="region" aria-label="Bannière cookies">
+    <div class="cookie-banner fixed bottom-0 left-0 right-0 bg-white shadow-md p-4" id="cookieBanner" role="region" aria-label="Bannière cookies" style="display:none;">
         <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex-1">
                 <p class="text-sm text-gray-800">
@@ -440,8 +458,8 @@
                 </p>
             </div>
             <div class="flex gap-3">
-                <button onclick="acceptCookies()" class="btn-secondary">Accepter</button>
-                <button onclick="refuseCookies()" class="px-6 py-2 border-2 border-gray-300 rounded-full hover:bg-gray-100 transition">Refuser</button>
+                <button id="cookieAcceptBtn" class="btn-secondary">Accepter</button>
+                <button id="cookieRefuseBtn" class="px-6 py-2 border-2 border-gray-300 rounded-full hover:bg-gray-100 transition">Refuser</button>
             </div>
         </div>
     </div>
@@ -449,9 +467,9 @@
     <!-- JavaScript -->
     <script src="js/main.js" defer></script>
 
-    <!-- Small fallback JS (UI helpers) -->
+    <!-- Small fallback JS (UI helpers only) -->
     <script>
-      // Basic helpers if main.js doesn't implement them
+      // Basic helpers if main.js doesn't implement them (no cookie duplicates)
       function toggleMobileMenu() {
         const menu = document.getElementById('mobileMenu');
         const btn = document.querySelector('.mobile-menu-btn');
@@ -460,11 +478,11 @@
         if (open) {
           menu.classList.add('hidden');
           menu.setAttribute('aria-hidden', 'true');
-          btn.setAttribute('aria-expanded', 'false');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
         } else {
           menu.classList.remove('hidden');
           menu.setAttribute('aria-hidden', 'false');
-          btn.setAttribute('aria-expanded', 'true');
+          if (btn) btn.setAttribute('aria-expanded', 'true');
         }
       }
       function closeMobileMenu() {
@@ -478,23 +496,6 @@
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-      function acceptCookies() {
-        try { localStorage.setItem('cookieConsent', 'accepted'); } catch(e){}
-        const b = document.getElementById('cookieBanner'); if (b) b.style.display = 'none';
-      }
-      function refuseCookies() {
-        try { localStorage.setItem('cookieConsent', 'refused'); } catch(e){}
-        const b = document.getElementById('cookieBanner'); if (b) b.style.display = 'none';
-      }
-      // Hide cookie banner if already decided
-      (function(){
-        try{
-          const v = localStorage.getItem('cookieConsent');
-          if (v) {
-            const b = document.getElementById('cookieBanner'); if (b) b.style.display = 'none';
-          }
-        }catch(e){}
-      })();
     </script>
 </body>
 </html>
