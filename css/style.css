@@ -62,3 +62,53 @@ a:focus, button:focus {
   outline: 3px solid rgba(212,175,55,0.4);
   outline-offset: 2px;
 }
+
+/* Contact section layout fix: reorder right column so contact-info appears below the map on desktop */
+@media (min-width: 768px) {
+  /* Target the two-column grid inside #contact */
+  #contact .grid > div:nth-child(2) {
+    display: grid;
+    grid-template-rows: auto auto 1fr; /* calendly, map, contact-info */
+    gap: 18px;
+  }
+
+  /* First child in the right column is the contact-info in current markup -> force it to the last row visually */
+  #contact .grid > div:nth-child(2) > .contact-info {
+    grid-row: 3;
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+    color: #111;
+  }
+
+  /* Calendly widget stays on top */
+  #contact .grid > div:nth-child(2) > #calendly {
+    grid-row: 1;
+  }
+
+  /* The inline map container is the third child in the right column in current markup - push it to middle */
+  #contact .grid > div:nth-child(2) > div[style*="height:260px"] {
+    grid-row: 2;
+  }
+
+  /* Make sure the small map link sits just under the map */
+  #contact .grid > div:nth-child(2) > p.text-sm {
+    margin-top: 6px;
+    grid-row: 2;
+    align-self: start;
+  }
+}
+
+/* Responsive: revert to stacked flow on small screens */
+@media (max-width: 767px) {
+  #contact .grid > div:nth-child(2) {
+    display: block;
+  }
+  #contact .grid > div:nth-child(2) > .contact-info {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    color: inherit;
+  }
+}
