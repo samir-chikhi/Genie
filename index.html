@@ -479,17 +479,17 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
       function acceptCookies() {
-        try { localStorage.setItem('cookie_consent', 'accepted'); } catch(e){}
+        try { localStorage.setItem('cookieConsent', 'accepted'); } catch(e){}
         const b = document.getElementById('cookieBanner'); if (b) b.style.display = 'none';
       }
       function refuseCookies() {
-        try { localStorage.setItem('cookie_consent', 'refused'); } catch(e){}
+        try { localStorage.setItem('cookieConsent', 'refused'); } catch(e){}
         const b = document.getElementById('cookieBanner'); if (b) b.style.display = 'none';
       }
       // Hide cookie banner if already decided
       (function(){
         try{
-          const v = localStorage.getItem('cookie_consent');
+          const v = localStorage.getItem('cookieConsent');
           if (v) {
             const b = document.getElementById('cookieBanner'); if (b) b.style.display = 'none';
           }
