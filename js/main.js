@@ -174,3 +174,99 @@ window.addEventListener('load', revealOnScroll);
 // Console Message
 console.log('%c🎉 Bienvenue sur le site du Génie Montauban !', 'color: #365478; font-size: 20px; font-weight: bold;');
 console.log('%cSite développé pour l\'économie sociale et solidaire', 'color: #C9993E; font-size: 14px;');
+// --- Calendly: move contact-info if needed and set Calendly height to match the contact form ---
+(function () {
+  function debounce(fn, wait) {
+    let t;
+    return function (...args) {
+      clearTimeout(t);
+      t = setTimeout(() => fn.apply(this, args), wait);
+    };
+  }
+
+  function findCalendlyContainer() {
+    return (
+      document.querySelector('.calendly-inline-widget') ||
+      document.querySelector('#calendly') ||
+      document.querySelector('iframe[src*="calendly.com"]') ||
+      null
+    );
+  }
+
+  function findCalendlyIframe(container) {
+    if (!container) return null;
+    if (container.tagName === 'IFRAME') return container;
+    return container.querySelector('iframe[src*="calendly.com"]');
+  }
+
+  function findContactInfo() {
+    return document.querySelector('.contact-info');
+  }
+
+  function findContactForm() {
+    return document.querySelector('.contact-form') || document.querySelector('#contactForm') || document.querySelector('form');
+  }
+
+  function moveContactInfoUnderForm() {
+    const info = findContactInfo();
+    const form = findContactForm();
+    if (!info || !form) return false;
+
+    // If already directly after the form, nothing to do
+    if (form.nextElementSibling === info) return true;
+
+    form.parentNode.insertBefore(info, form.nextSibling);
+    return true;
+  }
+
+  function setCalendlyHeightToForm() {
+    const form = findContactForm();
+    const calendly = findCalendlyContainer();
+    if (!form || !calendly) return;
+
+    // compute form height
+    const formRect = form.getBoundingClientRect();
+    const targetHeight = Math.ceil(formRect.height);
+
+    // apply to Calendly container and iframe
+    calendly.style.height = targetHeight + 'px';
+    const iframe = findCalendlyIframe(calendly);
+    if (iframe) iframe.style.height = targetHeight + 'px';
+  }
+
+  const update = debounce(() => {
+    moveContactInfoUnderForm();
+    setCalendlyHeightToForm();
+  }, 140);
+
+  function init() {
+    update();
+    // react to resize/orientation
+    window.addEventListener('resize', update);
+    window.addEventListener('orientationchange', update);
+
+    // observe changes (Calendly injects iframe async)
+    const cal = document.querySelector('#calendly') || document.querySelector('.calendly-inline-widget');
+    if (cal) {
+      const mo = new MutationObserver(update);
+      mo.observe(cal, { childList: true, subtree: true });
+    }
+
+    // also observe the form area
+    const form = findContactForm();
+    const target = form || document.querySelector('#contact') || document.body;
+    if (target) {
+      const mo2 = new MutationObserver(update);
+      mo2.observe(target, { childList: true, subtree: true, attributes: true });
+    }
+
+    // final safety re-run shortly after load
+    setTimeout(update, 600);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
